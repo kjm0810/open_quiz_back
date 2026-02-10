@@ -12,6 +12,7 @@ const port = process.env.PORT || 8001;
 app.use(cors());
 app.use(express.json());
 
+
 // -------------------- Postgres 연결 --------------------
 const db = new Pool({
   host: process.env.DB_HOST || 'dpg-d65fh2npm1nc739r8kj0-a.postgres.render.com',
