@@ -15,11 +15,11 @@ app.use(express.json());
 
 // -------------------- Postgres 연결 --------------------
 const db = new Pool({
-  host: process.env.DB_HOST || 'dpg-d65fh2npm1nc739r8kj0-a.postgres.render.com',
-  port: Number(process.env.DB_PORT) || 5432,
-  user: process.env.DB_USER || 'kjmsppdb_user',
-  password: process.env.DB_PASSWORD || 'S0vpGj7wSlQDLWU5l54nZ1Ts7FvXnaDz',
-  database: process.env.DB_NAME || 'kjmsppdb',
+  host: 'dpg-d65fh2npm1nc739r8kj0-a.singapore-postgres.render.com', // External host
+  port: 5432,
+  database: 'kjmsppdb',
+  user: 'kjmsppdb_user',
+  password: 'S0vpGj7wSlQDLWU5l54nZ1Ts7FvXnaDz',
 });
 
 // -------------------- 퀴즈 리스트 조회 --------------------
@@ -39,7 +39,7 @@ app.get('/api/quiz/list', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'DB error' });
+    res.status(500).json({ error: 'DB error 1' });
   }
 });
 
@@ -54,7 +54,7 @@ app.get('/api/quiz/detail', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'DB error' });
+    res.status(500).json({ error: 'DB error 1' });
   }
 });
 
@@ -69,7 +69,7 @@ app.get('/api/quiz/content', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'DB error' });
+    res.status(500).json({ error: 'DB error 1' });
   }
 });
 
