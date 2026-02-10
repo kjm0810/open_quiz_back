@@ -14,10 +14,11 @@ app.use(express.json());
 
 // -------------------- Postgres 연결 --------------------
 const db = new Pool({
-  connectionString: process.env.DATABASE_URL, // Render Postgres 환경변수
-  ssl: {
-    rejectUnauthorized: false,               // Render SSL 필요
-  },
+  host: process.env.DB_HOST || 'dpg-d65fh2npm1nc739r8kj0-a.postgres.render.com',
+  port: Number(process.env.DB_PORT) || 5432,
+  user: process.env.DB_USER || 'kjmsppdb_user',
+  password: process.env.DB_PASSWORD || 'S0vpGj7wSlQDLWU5l54nZ1Ts7FvXnaDz',
+  database: process.env.DB_NAME || 'kjmsppdb',
 });
 
 // -------------------- 퀴즈 리스트 조회 --------------------
