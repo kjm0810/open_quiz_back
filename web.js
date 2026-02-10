@@ -20,6 +20,9 @@ const db = new Pool({
   database: 'kjmsppdb',
   user: 'kjmsppdb_user',
   password: 'S0vpGj7wSlQDLWU5l54nZ1Ts7FvXnaDz',
+  ssl: {
+    rejectUnauthorized: false, // Render Postgres 외부 접속 시 필요
+  },
 });
 
 // -------------------- 퀴즈 리스트 조회 --------------------
@@ -39,7 +42,7 @@ app.get('/api/quiz/list', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'DB error 1' });
+    res.status(500).json({ error: 'DB error 2' });
   }
 });
 
@@ -54,7 +57,7 @@ app.get('/api/quiz/detail', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'DB error 1' });
+    res.status(500).json({ error: 'DB error 2' });
   }
 });
 
@@ -69,7 +72,7 @@ app.get('/api/quiz/content', async (req, res) => {
     res.status(200).json(rows);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'DB error 1' });
+    res.status(500).json({ error: 'DB error 2' });
   }
 });
 
